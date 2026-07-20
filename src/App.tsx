@@ -12,6 +12,7 @@ import CourseDetail from './components/CourseDetail';
 import DashboardView from './components/DashboardView';
 import ScheduleView from './components/ScheduleView';
 import RegistrationHubView from './components/RegistrationHubView';
+import DisqusForum from './components/DisqusForum';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, MessageSquare, ShieldAlert } from 'lucide-react';
 
@@ -214,6 +215,13 @@ export default function App() {
                 onClearAll={handleClearAllDrafts}
               />
             )}
+
+            {/* Disqus Forum at the bottom of each tab */}
+            <DisqusForum 
+              currentTab={currentTab}
+              courseId={currentTab === 'discovery' ? selectedCourse.id : undefined}
+              courseTitle={currentTab === 'discovery' ? selectedCourse.title : undefined}
+            />
           </motion.div>
         </AnimatePresence>
       </main>
